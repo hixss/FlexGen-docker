@@ -6,7 +6,7 @@ FlexGen with docker
 Install Docker.
 
 ```sh
-$ git clone https://github.com/karaage0703/FlexGen-docker
+$ git clone https://github.com/hixss/FlexGen-docker
 $ cd FlexGen-docker
 $ docker build -t ubuntu:FlexGen .
 ```
@@ -15,14 +15,15 @@ $ docker build -t ubuntu:FlexGen .
 Execute following command in FlexGen-docker directory.
 
 ```sh
-$ docker run -it -v $(pwd):/root --gpus all ubuntu:FlexGen
+$ docker run -it -v /tmp:/mnt --gpus all ubuntu:FlexGen
 ```
 
 In container, execute following commands.
 
 ```
-root@hostname:/# cd FlexGen
-root@hostname:/FlexGen# python3 apps/chatbot.py --model facebook/opt-6.7b --compress-weight
+root@hostname:/# cd FlexGen/flexgen/apps
+root@hostname:/FlexGen# python3 completion.py --model facebook/opt-30b --percent 100 0 100 0 100 0 --compress-weight
+
 ```
 
 # Reference
